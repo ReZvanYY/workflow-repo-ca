@@ -1,41 +1,22 @@
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
-  root: true,
   env: {
     browser: true,
     es2021: true,
     node: true,
+    'vitest/globals': true // allows describe, it, expect in tests
   },
-  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    ecmaVersion: 2021,
+    sourceType: "module" // allows import/export
   },
-  plugins: ['@typescript-eslint', 'vitest'],
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:vitest/recommended" // optional, adds vitest-specific rules
   ],
+  plugins: ["prettier", "vitest"],
   rules: {
-    'no-unused-vars': 'warn',
-    '@typescript-eslint/no-unused-vars': 'warn',
-  },
-  overrides: [
-    {
-      files: ['**/*.test.{js,ts,jsx,tsx}', '**/__tests__/**/*.{js,ts,jsx,tsx}'],
-      plugins: ['vitest'],
-      // 👇 Manually declare Vitest's global variables
-      globals: {
-        vi: 'readonly',
-        describe: 'readonly',
-        it: 'readonly',
-        test: 'readonly',
-        expect: 'readonly',
-        beforeAll: 'readonly',
-        afterAll: 'readonly',
-        beforeEach: 'readonly',
-        afterEach: 'readonly',
-      },
-    },
-  ],
-}
+    "prettier/prettier": ["error"]
+  }
+};
