@@ -4,12 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch"
+    "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test",
+    "e2e:headed": "playwright test --headed",
+    "e2e:report": "playwright show-report"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "tailwindcss": "^3.4.12"
+    "@playwright/test": "^1.56.1",
+    "@typescript-eslint/eslint-plugin": "^8.46.1",
+    "@typescript-eslint/parser": "^8.46.1",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jest": "^29.0.1",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-vitest": "^0.5.4",
+    "playwright": "^1.56.1",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^3.4.12",
+    "vitest": "^3.2.4"
   }
 }
